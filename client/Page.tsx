@@ -4,7 +4,7 @@ import {GET_COMPANIES, CompanyType} from '@client/graphql'
 
 
 const Container = styled.div`
-  width: 1000px;
+  max-width: 1000px;
   margin: 0 auto;
 `
 
