@@ -4,11 +4,11 @@ import { ApolloServer } from 'apollo-server-express'
 import { ApolloServerPluginDrainHttpServer } from 'apollo-server-core'
 import schema from './schema'
 
-async function startApolloServer(typeDefs) {
+async function startApolloServer(schema) {
   const app = express();
   const httpServer = http.createServer(app);
   const server = new ApolloServer({
-    typeDefs,
+    schema,
     plugins: [ApolloServerPluginDrainHttpServer({ httpServer })],
   });
   await server.start();

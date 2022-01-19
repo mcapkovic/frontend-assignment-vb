@@ -92,10 +92,13 @@ const addCompany = (obj, company) => {
     throw new GraphQLError('Investment size has to be positive number')
   }
   companies.push({
-    id: companies.length ?? 0,
+    id: companies.length,
     ...company,
   })
-  return company
+  return {
+    id: companies.length,
+    ...company,
+  }
 }
 
 const mutation = new GraphQLObjectType({
