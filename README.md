@@ -1,11 +1,18 @@
-# VESTBERRY Test Assignment
+<br /><br /><br />
+<img src="public/vestberry-logo.svg" width="200" align="center" alt="Vestberry logo" />
+<br /><br /><br />
 
-## TASK
-
-Your task is to create a simple page with a table of companies and a chart indicating the size of investments, based on the design.
-
-You can start with the prepared project we have created and with our backend.
+# Frontend Assignment
 <br />
+
+## Task
+
+Your task is to create a simple page with a table of companies and a chart indicating the size of investments, based on the design. You can start with the prepared project we have created and with our backend.
+<br />
+
+[Figma link here](https://www.figma.com/file/EnTB5ILYMPO5jZlRKuLXJ6/assignment?node-id=2%3A195)
+
+
 <br />
 <img src="assets/page.png" width="100%" alt="Page" />
 <br />
@@ -13,7 +20,8 @@ You can start with the prepared project we have created and with our backend.
 <img src="assets/modal.png" width="100%" alt="Modal" />
 <br />
 <br />
-## OBJECTIVES
+
+## Objectives
 
 * Try to get the template visual as close as possible to the design, you can export icons from figma.
 
@@ -26,8 +34,10 @@ You can start with the prepared project we have created and with our backend.
 * Feel free to use any additional library you might need for completing this project, or to change the structure or anything
 
 * We would like to see, how will you solve this task in terms of result precision, code quality & readability
+<br />
+<br />
 
-## PROJECT STRUCTURE
+## Project structure
 
 ```
 .
@@ -37,10 +47,15 @@ You can start with the prepared project we have created and with our backend.
 │   └── main.js              # Server application entry point
 ├── client                      # Application source code
 ```
+<br />
+<br />
 
-## Requirements (tested on)
+## Requirements
+ (tested on)
 * node `^17.4.0`
 * yarn `^1.22.17` or npm `^8.3.1`
+<br />
+<br />
 
 ## Installation
 
@@ -56,6 +71,8 @@ When that's done, install the project dependencies.
 ```bash
 $ npm i  # Install project dependencies (or `yarn`)
 ```
+<br />
+<br />
 
 ## Running the Project
 
