@@ -1,9 +1,9 @@
-<br /><br /><br />
-<img src="public/vestberry-logo.svg" width="200" align="center" alt="Vestberry logo" />
-<br /><br /><br />
-
 # Frontend Assignment
-<br />
+<br /><br /><br />
+<p align="center">
+<img src="public/vestberry-logo.svg" width="300" align="center" alt="Vestberry logo" />
+</p>
+<br /><br /><br />
 
 ## Task
 
