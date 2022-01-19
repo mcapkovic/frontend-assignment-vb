@@ -1,0 +1,38 @@
+{
+  "name": "frontend-assignment",
+  "version": "0.0.0",
+  "scripts": {
+    "start": "npm run dev",
+    "dev": "concurrently \"npm run dev:client\" \"npm run dev:server\"",
+    "dev:client": "vite",
+    "dev:server": "nodemon --exec \"node -r esbuild-runner/register\" -e js,ts server/main.ts",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "lint": "eslint .",
+    "lint:fix": "npm run lint -- --fix"
+  },
+  "dependencies": {
+    "@apollo/client": "^3.5.7",
+    "apollo-server-core": "^3.6.2",
+    "apollo-server-express": "^3.6.2",
+    "express": "^4.17.2",
+    "graphql": "^16.2.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "styled-components": "^5.3.3"
+  },
+  "devDependencies": {
+    "@types/react": "^17.0.33",
+    "@types/react-dom": "^17.0.10",
+    "@types/styled-components": "^5.1.20",
+    "@vitejs/plugin-react": "^1.0.7",
+    "casual": "^1.6.2",
+    "concurrently": "^7.0.0",
+    "esbuild-runner": "^2.2.1",
+    "eslint": "^8.7.0",
+    "nodemon": "^2.0.15",
+    "typescript": "^4.4.4",
+    "vite": "^2.7.2",
+    "vite-plugin-svgr": "^1.0.1"
+  }
+}
