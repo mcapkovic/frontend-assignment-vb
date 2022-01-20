@@ -27,18 +27,20 @@ const Header = styled.header`
   padding: 20px;
 `
 
-const App = () => (
-  <div className="App">
-    <GlobalStyles />
-    <ApolloProvider client={client}>
-      <ThemeProvider theme={theme}>
-        <Header>
-          <Logo />
-        </Header>
-        <Page />
-      </ThemeProvider>
-    </ApolloProvider>
-  </div>
-)
+function App() {
+  return (
+    <div className="App">
+      <GlobalStyles />
+      <ApolloProvider client={client}>
+        <ThemeProvider theme={theme}>
+          <Header>
+            <Logo />
+          </Header>
+          <Page />
+        </ThemeProvider>
+      </ApolloProvider>
+    </div>
+  )
+}
 
 export default App

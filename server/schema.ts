@@ -13,30 +13,28 @@ const CompanyType = new GraphQLObjectType({
   name: 'Company',
   description: '...',
 
-  fields: () => {
-    return {
-      id: {
-        type: GraphQLID,
-        resolve: company => company.id,
-      },
-      name: {
-        type: GraphQLString,
-        resolve: company => company.name,
-      },
-      stage: {
-        type: GraphQLString,
-        resolve: company => company.stage,
-      },
-      sector: {
-        type: GraphQLString,
-        resolve: company => company.sector,
-      },
-      investmentSize: {
-        type: GraphQLInt,
-        resolve: company => company.investmentSize,
-      },
-    }
-  },
+  fields: () => ({
+    id: {
+      type: GraphQLID,
+      resolve: (company) => company.id,
+    },
+    name: {
+      type: GraphQLString,
+      resolve: (company) => company.name,
+    },
+    stage: {
+      type: GraphQLString,
+      resolve: (company) => company.stage,
+    },
+    sector: {
+      type: GraphQLString,
+      resolve: (company) => company.sector,
+    },
+    investmentSize: {
+      type: GraphQLInt,
+      resolve: (company) => company.investmentSize,
+    },
+  }),
 })
 
 const sectors = ['Fintech', 'IOT', 'Roboadvisory', 'Insuretech']
@@ -52,20 +50,17 @@ const companies = [...Array(Math.round(Math.random() * 3 + 1)).keys()]
 
 const companiesQuery = {
   type: new GraphQLList(CompanyType),
-  resolve: (root, args, {session, ...data}, d) =>
-    companies,
+  resolve: () => companies,
 }
 
 const sectorsQuery = {
   type: new GraphQLList(GraphQLString),
-  resolve: (root, args, {session, ...data}, d) =>
-    sectors,
+  resolve: () => sectors,
 }
 
 const stagesQuery = {
   type: new GraphQLList(GraphQLString),
-  resolve: (root, args, {session, ...data}, d) =>
-    stages,
+  resolve: () => stages,
 }
 
 const query = new GraphQLObjectType({

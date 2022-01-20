@@ -1,4 +1,6 @@
-import {ApolloClient, ApolloLink, HttpLink, InMemoryCache} from '@apollo/client'
+import {
+  ApolloClient, ApolloLink, HttpLink, InMemoryCache,
+} from '@apollo/client'
 
 const uri = `${window.location.protocol}//${window.location.hostname}:8000/${'graphql'}`
 

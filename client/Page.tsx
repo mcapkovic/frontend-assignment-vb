@@ -2,7 +2,6 @@ import {useQuery} from '@apollo/client'
 import styled from 'styled-components'
 import {GET_COMPANIES, CompanyType} from '@client/graphql'
 
-
 const Container = styled.div`
   max-width: 1000px;
   margin: 0 auto;
@@ -12,7 +11,7 @@ const LoadingDiv = styled.div`
   text-align: center;
 `
 
-export const Page = () => {
+export function Page() {
   const {loading, error, data} = useQuery<{companies: CompanyType[]}>(GET_COMPANIES)
 
   if (loading) {
@@ -44,8 +43,8 @@ export const Page = () => {
         </thead>
         <tbody>
           {
-            companies?.map((company, i) => (
-              <tr key={i}>
+            companies?.map((company) => (
+              <tr key={company.id}>
                 <td>{company.name}</td>
                 <td>{company.stage}</td>
                 <td>{company.sector}</td>
