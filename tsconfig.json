@@ -16,12 +16,17 @@
     "noEmit": true,
     "jsx": "react-jsx",
     "types": ["vite-plugin-svgr/client"],
+    "baseUrl": ".",
     "paths": {
       "@client/*": ["./client/*"],
       "@public/*": ["./public/*"],
+      "@assets/*": ["./assets/*"],
     },
   },
   "include": [
+    "./.eslintrc.js",
+    "./vite.config.ts",
+    "./server/**/*",
     "./client/**/*",
     "./assets/**/*",
   ]

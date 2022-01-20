@@ -1,10 +1,17 @@
 module.exports = {
-  parser: '@typescript-eslint/parser',
-  extends: 'airbnb',
-  plugins: ['import'],
   env: {
     browser: true,
+    node: true,
   },
+  parser: '@typescript-eslint/parser',
+  parserOptions: {
+    project: './tsconfig.json',
+  },
+  extends: [
+    'airbnb',
+    'airbnb/hooks',
+  ],
+  plugins: ['import'],
   settings: {
     'import/resolver': {
       typescript: {},
@@ -31,6 +38,5 @@ module.exports = {
     'react/jsx-filename-extension': [1, {extensions: ['.jsx', '.tsx']}],
     'no-unused-vars': ['error', {args: 'after-used'}],
     'import/extensions': ['warn', 'never'],
-    'no-promise-executor-return': 'warn',
   },
 }
