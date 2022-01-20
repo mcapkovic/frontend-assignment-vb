@@ -16,7 +16,7 @@ export default defineConfig({
   resolve: {
     alias: [
       { find: '@client', replacement: '/client' },
-      { find: '@public', replacement: '/public' }, // because of vite-plugin-svgr
+      { find: '@assets', replacement: '/assets' },
     ],
   },
 })

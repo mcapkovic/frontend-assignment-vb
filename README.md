@@ -1,7 +1,7 @@
 # Frontend Assignment
 <br /><br /><br />
 <p align="center">
-<img src="public/vestberry-logo.svg" width="300" align="center" alt="Vestberry logo" />
+<img src="assets/vestberry-logo.svg" width="300" align="center" alt="Vestberry logo" />
 </p>
 <br /><br />
 

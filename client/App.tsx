@@ -1,7 +1,7 @@
 import {ApolloProvider} from '@apollo/client'
 import styled, {createGlobalStyle, ThemeProvider} from 'styled-components'
 import theme from '@client/theme'
-import {ReactComponent as LogoSvg} from '../assets/vestberry-logo.svg'
+import {ReactComponent as LogoSvg} from '@assets/vestberry-logo.svg'
 
 import client from '@client/apollo'
 import Page from '@client/Page'
