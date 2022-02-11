@@ -38,5 +38,13 @@ module.exports = {
     'react/jsx-filename-extension': [1, {extensions: ['.jsx', '.tsx']}],
     'no-unused-vars': ['error', {args: 'after-used'}],
     'import/extensions': ['warn', 'never'],
+    'arrow-parens': 'off',
+    'react/function-component-definition': 'off',
+    'import/prefer-default-export': 'off',
+    'react/jsx-props-no-spreading': 'off',
+    'no-shadow': 'warn',
+    'consistent-return': 'off',
+    'react/require-default-props': 'off',
+    z,
   },
 }

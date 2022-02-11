@@ -65,7 +65,7 @@ const stagesQuery = {
 
 const query = new GraphQLObjectType({
   name: 'Query',
-  description: 'get companies',
+  description: '...',
   fields: {
     companies: companiesQuery,
     sectors: sectorsQuery,
@@ -98,7 +98,7 @@ const addCompany = (obj, company) => {
 
 const mutation = new GraphQLObjectType({
   name: 'Mutation',
-  description: 'add company',
+  description: '...',
   fields: {
     addCompany: {
       type: CompanyType,
