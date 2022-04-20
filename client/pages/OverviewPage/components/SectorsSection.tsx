@@ -5,7 +5,14 @@ import { ReactComponent as RobotIcon } from "@assets/icons/robot.svg";
 import { ReactComponent as IotIcon } from "@assets/icons/iot.svg";
 
 // styles
-import { SectionRow, SectionItem, Counter,Count, Icon, Name } from "./SectorsSectionStyles";
+import {
+  SectionRow,
+  SectionItem,
+  Counter,
+  Count,
+  Icon,
+  Name,
+} from "./SectorsSectionStyles";
 
 const SECTORS = [
   { name: "Fintech", icon: FintechIcon },
@@ -14,7 +21,12 @@ const SECTORS = [
   { name: "IOT", icon: IotIcon },
 ];
 
-function SectorsSection() {
+interface Props {
+  sectors: { [key: string]: number };
+}
+
+function SectorsSection(props: Props) {
+  const { sectors } = props;
   return (
     <>
       <h1>Companies by sectors</h1>
@@ -23,8 +35,13 @@ function SectorsSection() {
           const { name, icon: IconComponent } = sector;
           return (
             <SectionItem>
-              <Counter><Count>9</Count><Name>{name}</Name></Counter>
-              <Icon><IconComponent /></Icon>
+              <Counter>
+                <Count>{sectors[name] || 0}</Count>
+                <Name>{name}</Name>
+              </Counter>
+              <Icon>
+                <IconComponent />
+              </Icon>
             </SectionItem>
           );
         })}
