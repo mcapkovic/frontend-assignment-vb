@@ -39,7 +39,7 @@ const CompanyType = new GraphQLObjectType({
 
 const sectors = ['Fintech', 'IOT', 'Roboadvisory', 'Insuretech']
 const stages = ['Idea', 'Prototype', 'Seed', 'Series A', 'Series B', 'Series C']
-const companies = [...Array(Math.round(Math.random() * 3 + 1)).keys()]
+const companies = [...Array(Math.round(Math.random() * 8 + 3)).keys()]
   .map((_, id) => ({
     id,
     name: casual.company_name,
