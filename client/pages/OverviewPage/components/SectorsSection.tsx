@@ -34,7 +34,7 @@ function SectorsSection(props: Props) {
         {SECTORS.map((sector) => {
           const { name, icon: IconComponent } = sector;
           return (
-            <SectionItem>
+            <SectionItem key={name}>
               <Counter>
                 <Count>{sectors[name] || 0}</Count>
                 <Name>{name}</Name>

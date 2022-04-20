@@ -18,6 +18,30 @@ export function OverviewPage() {
     GET_COMPANIES
   );
 
+  const overviewData = useMemo(() => {
+    const newData: {
+      sectorsCount: { [key: string]: number };
+      tableData: CompanyType[];
+      originalData: CompanyType[] | null;
+    } = { sectorsCount: {}, tableData: [], originalData: null };
+
+    if (loading || error) return newData;
+
+    const companies = data?.companies || [];
+    companies.forEach((company) => {
+      if (company.sector in newData.sectorsCount) {
+        newData.sectorsCount[company.sector] += 1;
+      } else {
+        newData.sectorsCount[company.sector] = 1;
+      }
+    });
+
+    newData.originalData = companies;
+    newData.tableData = companies;
+
+    return newData;
+  }, [data]);
+
   if (loading) {
     return <LoadingDiv>Loading data...</LoadingDiv>;
   }
@@ -30,24 +54,6 @@ export function OverviewPage() {
     );
   }
 
-  const overviewData = useMemo(() => {
-    const sectorsCount: { [key: string]: number } = {};
-    const companies = data?.companies || [];
-    companies.forEach((company) => {
-      if (company.sector in sectorsCount) {
-        sectorsCount[company.sector] += 1;
-      } else {
-        sectorsCount[company.sector] = 1;
-      }
-    });
-
-    return {
-      sectorsCount,
-      tableData: companies,
-      originalData: companies,
-    };
-  }, [data]);
-  
   return (
     <Container>
       <SectorsSection sectors={overviewData.sectorsCount} />
