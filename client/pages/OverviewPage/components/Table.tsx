@@ -4,7 +4,7 @@ import {ChartTableItem} from '@client/utils/helpers'
 // styles
 import {
   StyledTable,
-  Cell,
+  TableCell,
   HeaderCell,
   HeaderRow,
   TableRow,
@@ -33,10 +33,10 @@ function Table(props: Props) {
         <tbody>
           {data.map((company) => (
             <TableRow key={company.id}>
-              <Cell>{company.name}</Cell>
-              <Cell align="right">{company.stage}</Cell>
-              <Cell align="right">{company.sector}</Cell>
-              <Cell align="right">{company.investmentSizeFormatted}</Cell>
+              <TableCell>{company.name}</TableCell>
+              <TableCell align="right">{company.stage}</TableCell>
+              <TableCell align="right">{company.sector}</TableCell>
+              <TableCell align="right">{company.investmentSizeFormatted}</TableCell>
             </TableRow>
           )) ?? null}
         </tbody>

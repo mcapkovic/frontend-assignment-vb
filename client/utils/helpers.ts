@@ -12,17 +12,19 @@ export interface ChartTableItem extends CompanyType {
   investmentSizeFormatted: string;
 }
 
+interface CompaniesData {
+  sectorsCount: { [key: string]: number };
+  tableData: ChartTableItem[];
+  originalData: CompanyType[] | null;
+  chartData: ChartDataItem[];
+}
+
 export function getCompaniesData(
   data: { companies: CompanyType[] } | undefined,
   loading: boolean,
   error: any
 ) {
-  const newData: {
-    sectorsCount: { [key: string]: number };
-    tableData: ChartTableItem[];
-    originalData: CompanyType[] | null;
-    chartData: ChartDataItem[];
-  } = {
+  const newData: CompaniesData = {
     sectorsCount: {},
     tableData: [],
     originalData: null,
@@ -49,6 +51,7 @@ export function getCompaniesData(
       id: company.id,
       label: company.name,
       value: company.investmentSize,
+      // TODO add more colors
       color: colorSchemes.nivo[index % colorSchemes.nivo.length],
     })
 

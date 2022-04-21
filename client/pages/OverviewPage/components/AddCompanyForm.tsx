@@ -22,6 +22,17 @@ const STAGES = [
   'Series C',
 ]
 
+const FIELD_NAMES = {
+  NAME: 'name',
+  STAGE: 'stage',
+  SECTOR: 'sector',
+  INVESTMENT_SIZE: 'investmentSize',
+}
+
+const MESSAGES = {
+  IS_REQUIRED: 'Field is required',
+}
+
 interface Props {
   // eslint-disable-next-line no-unused-vars
   onSubmit: (data: any) => void;
@@ -39,27 +50,29 @@ function AddCompanyForm(props: Props) {
 
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
-      <Label htmlFor="name">Company name</Label>
+      <Label htmlFor={FIELD_NAMES.NAME}>Company name</Label>
       <Field
-        id="name"
+        id={FIELD_NAMES.NAME}
         type="text"
         placeholder="Company name"
-        {...register('name', {
-          required: {value: true, message: 'Field is required'},
+        {...register(FIELD_NAMES.NAME, {
+          required: {value: true, message: MESSAGES.IS_REQUIRED},
           minLength: {value: 3, message: 'Min length is 3'},
           maxLength: {value: 80, message: 'Max length is 80'},
         })}
       />
-      {errors.name ? <Error>{errors.name.message}</Error> : null}
+      {errors[FIELD_NAMES.NAME] ? (
+        <Error>{errors[FIELD_NAMES.NAME].message}</Error>
+      ) : null}
 
-      <Label htmlFor="stage" gap>
+      <Label htmlFor={FIELD_NAMES.STAGE} gap>
         Stage
       </Label>
       <SelectField
-        id="stage"
-        {...register('stage', {
+        id={FIELD_NAMES.STAGE}
+        {...register(FIELD_NAMES.STAGE, {
           required: true,
-          validate: (value) => (value === 'default' ? 'Field is required' : undefined),
+          validate: (value) => (value === 'default' ? MESSAGES.IS_REQUIRED : undefined),
         })}
       >
         <option value="default" disabled selected>
@@ -71,17 +84,18 @@ function AddCompanyForm(props: Props) {
           </option>
         ))}
       </SelectField>
-      {errors.stage ? <Error>{errors.stage.message}</Error> : null}
+      {errors[FIELD_NAMES.STAGE] ? (
+        <Error>{errors[FIELD_NAMES.STAGE].message}</Error>
+      ) : null}
 
-      <Label htmlFor="sector" gap>
+      <Label htmlFor={FIELD_NAMES.SECTOR} gap>
         Sector
       </Label>
       <SelectField
-        id="sector"
-        placeholder="sfadfafasfas"
-        {...register('sector', {
+        id={FIELD_NAMES.SECTOR}
+        {...register(FIELD_NAMES.SECTOR, {
           required: true,
-          validate: (value) => (value === 'default' ? 'Field is required' : undefined),
+          validate: (value) => (value === 'default' ? MESSAGES.IS_REQUIRED : undefined),
         })}
       >
         <option value="default" disabled selected>
@@ -93,18 +107,20 @@ function AddCompanyForm(props: Props) {
           </option>
         ))}
       </SelectField>
-      {errors.sector ? <Error>{errors.sector.message}</Error> : null}
+      {errors[FIELD_NAMES.SECTOR] ? (
+        <Error>{errors[FIELD_NAMES.SECTOR].message}</Error>
+      ) : null}
 
-      <Label htmlFor="investmentSize" gap>
+      <Label htmlFor={FIELD_NAMES.INVESTMENT_SIZE} gap>
         Sector
       </Label>
       <FieldWrapper data-suffix="EUR">
         <Field
-          id="investmentSize"
+          id={FIELD_NAMES.INVESTMENT_SIZE}
           type="number"
           placeholder="Enter amount"
-          {...register('investmentSize', {
-            required: {value: true, message: 'Field is required'},
+          {...register(FIELD_NAMES.INVESTMENT_SIZE, {
+            required: {value: true, message: MESSAGES.IS_REQUIRED},
             max: {
               value: GRAPHQL_MAX_INT,
               message: `Max amount is ${GRAPHQL_MAX_INT}`,
@@ -112,8 +128,8 @@ function AddCompanyForm(props: Props) {
           })}
         />
       </FieldWrapper>
-      {errors.investmentSize ? (
-        <Error>{errors.investmentSize.message}</Error>
+      {errors[FIELD_NAMES.INVESTMENT_SIZE] ? (
+        <Error>{errors[FIELD_NAMES.INVESTMENT_SIZE].message}</Error>
       ) : null}
 
       <Footer>

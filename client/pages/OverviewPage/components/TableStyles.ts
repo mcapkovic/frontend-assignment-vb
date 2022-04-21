@@ -46,7 +46,7 @@ export const TableRow = styled.tr`
   }
 `
 
-export const Cell = styled.td`
+export const TableCell = styled.td`
   padding: 21px 30px;
   text-align: ${(props) => props.align};
   font-weight: ${theme.weight.medium};
