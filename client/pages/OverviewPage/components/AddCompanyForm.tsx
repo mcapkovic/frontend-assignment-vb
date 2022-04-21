@@ -1,7 +1,5 @@
-import theme from "@client/theme";
 import { useForm } from "react-hook-form";
-import { ADD_COMPANY, GET_COMPANIES, NewCompany } from "@client/graphql";
-
+import { GRAPHQL_MAX_INT } from "graphql";
 // core
 import { Button } from "@client/core/ButtonStyles";
 
@@ -70,7 +68,10 @@ function AddCompanyForm(props: Props) {
         placeholder="Enter amount"
         {...register("investmentSize", {
           required: { value: true, message: "Is required" },
-          maxLength: { value: 80, message: "Max length is 80" },
+          max: {
+            value: GRAPHQL_MAX_INT,
+            message: `Max amount is ${GRAPHQL_MAX_INT}`,
+          },
         })}
       />
       {errors.investmentSize ? (
