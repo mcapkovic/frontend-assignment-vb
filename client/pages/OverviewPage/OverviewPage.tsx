@@ -1,8 +1,10 @@
+import { useMemo } from "react";
 import { useQuery } from "@apollo/client";
+import { colorSchemes } from "@nivo/colors";
 import styled from "styled-components";
 import { GET_COMPANIES, CompanyType } from "@client/graphql";
 import SectorsSection from "./components/SectorsSection";
-import { useMemo } from "react";
+import ChartSection from "./components/ChartSection";
 
 const Container = styled.div`
   max-width: 1000px;
@@ -12,6 +14,13 @@ const Container = styled.div`
 const LoadingDiv = styled.div`
   text-align: center;
 `;
+
+export interface ChartDataItem {
+  id: string;
+  label: string;
+  value: number;
+  color: string;
+}
 
 export function OverviewPage() {
   const { loading, error, data } = useQuery<{ companies: CompanyType[] }>(
@@ -23,20 +32,34 @@ export function OverviewPage() {
       sectorsCount: { [key: string]: number };
       tableData: CompanyType[];
       originalData: CompanyType[] | null;
-    } = { sectorsCount: {}, tableData: [], originalData: null };
+      chartData: ChartDataItem[];
+    } = { sectorsCount: {}, tableData: [], originalData: null, chartData: [] };
 
     if (loading || error) return newData;
 
     const companies = data?.companies || [];
-    companies.forEach((company) => {
+
+    // add original data
+    newData.originalData = companies;
+
+    companies.forEach((company, index) => {
+      // add sectors
       if (company.sector in newData.sectorsCount) {
         newData.sectorsCount[company.sector] += 1;
       } else {
         newData.sectorsCount[company.sector] = 1;
       }
+
+      // add chart data
+      newData.chartData.push({
+        id: company.id,
+        label: company.name,
+        value: company.investmentSize,
+        color: colorSchemes.nivo[index % colorSchemes.nivo.length],
+      });
     });
 
-    newData.originalData = companies;
+    // add table data
     newData.tableData = companies;
 
     return newData;
@@ -57,8 +80,7 @@ export function OverviewPage() {
   return (
     <Container>
       <SectorsSection sectors={overviewData.sectorsCount} />
-      <h1>Companies by investment size</h1>
-      graf
+      <ChartSection data={overviewData.chartData} />
       <h1>Companies overview</h1>
       <table>
         <thead>
