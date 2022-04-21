@@ -1,10 +1,14 @@
+// types
+import {ChartTableItem} from '@client/utils/helpers'
+
 // styles
 import {
-  StyledTable, Cell, HeaderCell, HeaderRow, TableRow,
+  StyledTable,
+  Cell,
+  HeaderCell,
+  HeaderRow,
+  TableRow,
 } from './TableStyles'
-
-// types
-import {ChartTableItem} from '../OverviewPage'
 
 interface Props {
   data: ChartTableItem[];

@@ -44,6 +44,8 @@ export const Field = styled.input`
   }
 `
 
+export const SelectField = styled(Field).attrs(() => ({as: 'select'}))``
+
 export const FieldWrapper = styled.div`
   display: flex;
   flex-direction: column;

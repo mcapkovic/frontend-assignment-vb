@@ -1,4 +1,6 @@
 import styled from 'styled-components'
+
+// styles
 import theme from '@client/theme'
 
 export const StyledTable = styled.table`
@@ -6,11 +8,11 @@ export const StyledTable = styled.table`
   border-spacing: 0;
   border-radius: ${theme.borderRadius};
   overflow: hidden;
-  border: 2px solid ${theme.colors.black2}; ;
+  border: 2px solid ${theme.colors.white2}; ;
 `
 
 export const HeaderRow = styled.tr`
-  background-color: ${theme.colors.black5};
+  background-color: ${theme.colors.white5};
 `
 
 interface IHeaderCell {
@@ -28,7 +30,7 @@ export const HeaderCell = styled.th<IHeaderCell>`
 
 export const TableRow = styled.tr`
   &:nth-child(even) {
-    background-color: ${theme.colors.black2};
+    background-color: ${theme.colors.white2};
   }
 `
 

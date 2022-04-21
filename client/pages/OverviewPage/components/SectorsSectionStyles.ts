@@ -14,13 +14,13 @@ export const SectionItem = styled.div`
   flex: 1 0 100px;
   max-width: 180px;
   justify-content: space-between;
-  background-color: ${theme.colors.black3};
+  background-color: ${theme.colors.white3};
   border-radius: ${theme.borderRadius};
   transition: background-color 200ms;
   cursor: pointer;
 
   &:hover {
-    background-color: ${theme.colors.black6};
+    background-color: ${theme.colors.white6};
   }
 `
 

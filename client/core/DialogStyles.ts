@@ -5,7 +5,7 @@ import theme from '@client/theme'
 export const Header = styled.div`
   padding: 30px 108px 30px 40px;
   position: relative;
-  background-color: ${theme.colors.black3};
+  background-color: ${theme.colors.white3};
 `
 
 export const Title = styled.div`

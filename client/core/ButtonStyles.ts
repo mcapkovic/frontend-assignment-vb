@@ -15,7 +15,7 @@ export const ButtonBase = styled.button<IButton>`
   transition: background-color 200ms;
 
   &:hover {
-    background-color: ${(props) => (props.primary ? theme.colors.primaryHover : theme.colors.black5)};
+    background-color: ${(props) => (props.primary ? theme.colors.primaryHover : theme.colors.white5)};
   }
 `
 

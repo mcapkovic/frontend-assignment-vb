@@ -4,7 +4,11 @@ import {GRAPHQL_MAX_INT} from 'graphql'
 // styles
 import {Button} from '@client/core/ButtonStyles'
 import {
-  Label, Error, Field, FieldWrapper,
+  Label,
+  Error,
+  Field,
+  FieldWrapper,
+  SelectField,
 } from '@client/core/FieldStyles'
 import {Footer, Form} from './AddCompanyFormStyles'
 
@@ -51,8 +55,7 @@ function AddCompanyForm(props: Props) {
       <Label htmlFor="stage" gap>
         Stage
       </Label>
-      <Field
-        as="select"
+      <SelectField
         id="stage"
         {...register('stage', {
           required: true,
@@ -67,14 +70,13 @@ function AddCompanyForm(props: Props) {
             {stage}
           </option>
         ))}
-      </Field>
+      </SelectField>
       {errors.stage ? <Error>{errors.stage.message}</Error> : null}
 
       <Label htmlFor="sector" gap>
         Sector
       </Label>
-      <Field
-        as="select"
+      <SelectField
         id="sector"
         placeholder="sfadfafasfas"
         {...register('sector', {
@@ -90,7 +92,7 @@ function AddCompanyForm(props: Props) {
             {sector}
           </option>
         ))}
-      </Field>
+      </SelectField>
       {errors.sector ? <Error>{errors.sector.message}</Error> : null}
 
       <Label htmlFor="investmentSize" gap>

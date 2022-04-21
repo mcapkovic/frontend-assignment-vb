@@ -1,5 +1,8 @@
-import PieChart from './PieChart'
-import {ChartDataItem} from '../OverviewPage'
+// utils
+import {ChartDataItem} from '@client/utils/helpers'
+
+// styles
+import {Section} from '@client/core/LayoutStyles'
 import {
   ChartWrapper,
   SectionRow,
@@ -8,6 +11,9 @@ import {
   Item,
 } from './ChartSectionStyles'
 
+// components
+import PieChart from './PieChart'
+
 interface Props {
   data: ChartDataItem[];
 }
@@ -15,7 +21,7 @@ interface Props {
 function ChartSection(props: Props) {
   const {data} = props
   return (
-    <div>
+    <Section>
       <h1>Companies by investment size</h1>
       <SectionRow>
         <ChartWrapper>
@@ -31,7 +37,7 @@ function ChartSection(props: Props) {
           ))}
         </Legends>
       </SectionRow>
-    </div>
+    </Section>
   )
 }
 

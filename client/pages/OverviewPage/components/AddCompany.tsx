@@ -1,6 +1,5 @@
 import {useState} from 'react'
 import Modal from 'react-modal'
-import theme from '@client/theme'
 import {useMutation} from '@apollo/client'
 import {ADD_COMPANY, GET_COMPANIES, NewCompany} from '@client/graphql'
 
@@ -8,6 +7,7 @@ import {ADD_COMPANY, GET_COMPANIES, NewCompany} from '@client/graphql'
 import {ReactComponent as CloseIcon} from '@assets/icons/close.svg'
 
 // styles
+import theme from '@client/theme'
 import {
   Header, Title, Description, Close, Content,
 } from '@client/core/DialogStyles'

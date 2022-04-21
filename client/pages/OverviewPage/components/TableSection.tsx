@@ -1,5 +1,5 @@
 // types
-import {ChartTableItem} from '../OverviewPage'
+import {ChartTableItem} from '@client/utils/helpers'
 
 // components
 import Table from './Table'

@@ -7,7 +7,7 @@ export const SectionRow = styled.div`
   align-items: center;
   padding: 43px 0px;
   justify-content: space-around;
-  background-color: ${theme.colors.black3};
+  background-color: ${theme.colors.white3};
   border-radius: ${theme.borderRadius};
 `
 

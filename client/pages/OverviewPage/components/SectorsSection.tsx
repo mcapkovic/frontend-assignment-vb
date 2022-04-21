@@ -5,6 +5,7 @@ import {ReactComponent as RobotIcon} from '@assets/icons/robot.svg'
 import {ReactComponent as IotIcon} from '@assets/icons/iot.svg'
 
 // styles
+import {Section} from '@client/core/LayoutStyles'
 import {
   SectionRow,
   SectionItem,
@@ -28,7 +29,7 @@ interface Props {
 function SectorsSection(props: Props) {
   const {sectors} = props
   return (
-    <>
+    <Section>
       <h1>Companies by sectors</h1>
       <SectionRow>
         {SECTORS.map((sector) => {
@@ -46,7 +47,7 @@ function SectorsSection(props: Props) {
           )
         })}
       </SectionRow>
-    </>
+    </Section>
   )
 }
 
