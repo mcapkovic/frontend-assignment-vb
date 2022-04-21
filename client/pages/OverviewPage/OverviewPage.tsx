@@ -1,6 +1,5 @@
 import {useMemo} from 'react'
 import {useQuery} from '@apollo/client'
-import {colorSchemes} from '@nivo/colors'
 import styled from 'styled-components'
 import {GET_COMPANIES, CompanyType} from '@client/graphql'
 
@@ -16,7 +15,10 @@ import AddCompany from './components/AddCompany'
 const Container = styled.div`
   max-width: 1000px;
   margin: 0 auto;
-  padding-bottom: 120px;
+  padding: 0 20px 120px 20px;
+  @media (min-width: 1040px) {
+    padding: 0 0 120px 0;
+  }
 `
 
 const LoadingDiv = styled.div`

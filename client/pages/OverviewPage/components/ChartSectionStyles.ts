@@ -24,9 +24,13 @@ export const Legends = styled.ul`
   align-content: center;
   padding: 0;
   margin: 0;
-  max-height: 140px;
+  /* max-height: 140px; */
   line-height: 2;
   list-style-type: none;
+
+  @media (min-width: 400px) {
+    max-height: 140px;
+  }
 `
 
 export const Item = styled.li`

@@ -9,7 +9,11 @@ import {ReactComponent as CloseIcon} from '@assets/icons/close.svg'
 // styles
 import theme from '@client/theme'
 import {
-  Header, Title, Description, Close, Content,
+  Header,
+  Title,
+  Description,
+  Close,
+  Content,
 } from '@client/core/DialogStyles'
 import {Button} from '@client/core/ButtonStyles'
 import {Row} from './AddCompanyStyles'
@@ -19,18 +23,19 @@ import AddCompanyForm from './AddCompanyForm'
 
 const customStyles = {
   content: {
-    width: '640px',
+    maxWidth: '640px',
     top: '50%',
     left: '50%',
     padding: '0',
-    // right: 'auto',
-    // bottom: 'auto',
-    // marginRight: '-50%',
+    right: 'auto',
+    bottom: 'auto',
+    marginRight: '-50%',
     transform: 'translate(-50%, -50%)',
     border: 'none',
     borderRadius: theme.borderRadius,
     backgroundColor: theme.colors.bg,
     height: 'fit-content',
+    maxHeight: '100vh',
   },
   overlay: {
     backgroundColor: 'rgba(14, 15, 17, 0.9)',

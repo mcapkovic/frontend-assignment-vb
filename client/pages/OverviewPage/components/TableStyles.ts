@@ -3,6 +3,10 @@ import styled from 'styled-components'
 // styles
 import theme from '@client/theme'
 
+export const TableWrapper = styled.div`
+  overflow-x: auto
+`
+
 export const StyledTable = styled.table`
   width: 100%;
   border-spacing: 0;
