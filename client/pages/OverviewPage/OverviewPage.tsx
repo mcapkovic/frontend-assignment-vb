@@ -6,10 +6,12 @@ import { GET_COMPANIES, CompanyType } from "@client/graphql";
 import SectorsSection from "./components/SectorsSection";
 import ChartSection from "./components/ChartSection";
 import TableSection from "./components/TableSection";
+import AddCompany from './components/AddCompany';
 
 const Container = styled.div`
   max-width: 1000px;
   margin: 0 auto;
+  padding-bottom: 120px;
 `;
 
 const LoadingDiv = styled.div`
@@ -92,6 +94,7 @@ export function OverviewPage() {
       <SectorsSection sectors={overviewData.sectorsCount} />
       <ChartSection data={overviewData.chartData} />
       <TableSection data={overviewData.tableData}/>
+      <AddCompany />
     </Container>
   );
 }

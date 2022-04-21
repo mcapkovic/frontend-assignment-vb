@@ -3,6 +3,7 @@ const theme = {
     bg: "#141518",
     text: "#f1f4fa",
     primary: "#06AC72",
+    primaryHover: "#039964",
     white: '#FFFFFF',
     textGray:'#AAAAAA',
     grayBlue: '#F1F4FA',
@@ -18,7 +19,8 @@ const theme = {
     medium: 500,
     normal: 400
   },
-  borderRadius: '10px'
+  borderRadius: '10px',
+  borderRadiusButton: '20px'
 };
 
 export default theme;

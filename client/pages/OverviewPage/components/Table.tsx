@@ -1,9 +1,3 @@
-// icons
-import { ReactComponent as FintechIcon } from "@assets/icons/fintech.svg";
-import { ReactComponent as InsuranceIcon } from "@assets/icons/insurance.svg";
-import { ReactComponent as RobotIcon } from "@assets/icons/robot.svg";
-import { ReactComponent as IotIcon } from "@assets/icons/iot.svg";
-
 // styles
 import { StyledTable, Cell, HeaderCell, HeaderRow, TableRow } from "./TableStyles";
 
