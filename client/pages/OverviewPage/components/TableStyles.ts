@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import theme from '@client/theme'
 
 export const TableWrapper = styled.div`
-  overflow-x: auto
+  overflow-x: auto;
 `
 
 export const StyledTable = styled.table`
@@ -33,8 +33,16 @@ export const HeaderCell = styled.th<IHeaderCell>`
 `
 
 export const TableRow = styled.tr`
+  transition: background-color 200ms;
+
+  &:hover {
+    background-color: ${theme.colors.white1};
+  }
   &:nth-child(even) {
     background-color: ${theme.colors.white2};
+    &:hover {
+      background-color: ${theme.colors.white3};
+    }
   }
 `
 

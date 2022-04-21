@@ -16,11 +16,12 @@ export const SectionItem = styled.div`
   justify-content: space-between;
   background-color: ${theme.colors.white3};
   border-radius: ${theme.borderRadius};
-  transition: background-color 200ms;
+  transition:transform 200ms, background-color 200ms;
   cursor: pointer;
 
   &:hover {
     background-color: ${theme.colors.white6};
+    transform: scale(1.05)
   }
 `
 

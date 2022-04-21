@@ -25,6 +25,11 @@ export const Field = styled.input`
   border: 1px solid ${theme.colors.textGray};
   font-size: 15px;
   border-radius: 4px;
+  transition: border-color 200ms;
+
+  &:hover{
+    border-color: ${theme.colors.white};
+  }
 
   &::placeholder {
     /* Chrome, Firefox, Opera, Safari 10.1+ */
