@@ -24,7 +24,7 @@ function ChartSection(props: Props) {
 
         <Legends>
           {data.map((item) => (
-            <Item>
+            <Item key={item.id}>
               <Dot color={item.color} />
               {item.label}
             </Item>

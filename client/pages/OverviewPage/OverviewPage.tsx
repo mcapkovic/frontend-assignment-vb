@@ -5,6 +5,7 @@ import styled from "styled-components";
 import { GET_COMPANIES, CompanyType } from "@client/graphql";
 import SectorsSection from "./components/SectorsSection";
 import ChartSection from "./components/ChartSection";
+import TableSection from "./components/TableSection";
 
 const Container = styled.div`
   max-width: 1000px;
@@ -22,6 +23,10 @@ export interface ChartDataItem {
   color: string;
 }
 
+export interface ChartTableItem extends CompanyType {
+  investmentSizeFormatted: string;
+}
+
 export function OverviewPage() {
   const { loading, error, data } = useQuery<{ companies: CompanyType[] }>(
     GET_COMPANIES
@@ -30,7 +35,7 @@ export function OverviewPage() {
   const overviewData = useMemo(() => {
     const newData: {
       sectorsCount: { [key: string]: number };
-      tableData: CompanyType[];
+      tableData: ChartTableItem[];
       originalData: CompanyType[] | null;
       chartData: ChartDataItem[];
     } = { sectorsCount: {}, tableData: [], originalData: null, chartData: [] };
@@ -57,10 +62,15 @@ export function OverviewPage() {
         value: company.investmentSize,
         color: colorSchemes.nivo[index % colorSchemes.nivo.length],
       });
-    });
 
-    // add table data
-    newData.tableData = companies;
+      // add chart data
+      newData.tableData.push({
+        ...company,
+        investmentSizeFormatted: `${company.investmentSize
+          .toString()
+          .replace(/\B(?=(\d{3})+(?!\d))/g, " ")} EUR`,
+      });
+    });
 
     return newData;
   }, [data]);
@@ -81,27 +91,7 @@ export function OverviewPage() {
     <Container>
       <SectorsSection sectors={overviewData.sectorsCount} />
       <ChartSection data={overviewData.chartData} />
-      <h1>Companies overview</h1>
-      <table>
-        <thead>
-          <tr>
-            <th>company name</th>
-            <th>stage</th>
-            <th>sector</th>
-            <th>investment size</th>
-          </tr>
-        </thead>
-        <tbody>
-          {overviewData.tableData.map((company) => (
-            <tr key={company.id}>
-              <td>{company.name}</td>
-              <td>{company.stage}</td>
-              <td>{company.sector}</td>
-              <td>{company.investmentSize}</td>
-            </tr>
-          )) ?? null}
-        </tbody>
-      </table>
+      <TableSection data={overviewData.tableData}/>
     </Container>
   );
 }
