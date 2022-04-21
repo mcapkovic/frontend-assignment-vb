@@ -70,12 +70,13 @@ function AddCompanyForm(props: Props) {
       </Label>
       <SelectField
         id={FIELD_NAMES.STAGE}
+        defaultValue="default"
         {...register(FIELD_NAMES.STAGE, {
           required: true,
           validate: (value) => (value === 'default' ? MESSAGES.IS_REQUIRED : undefined),
         })}
       >
-        <option value="default" disabled selected>
+        <option value="default" disabled>
           Select stage from list
         </option>
         {STAGES.map((stage) => (
@@ -93,12 +94,13 @@ function AddCompanyForm(props: Props) {
       </Label>
       <SelectField
         id={FIELD_NAMES.SECTOR}
+        defaultValue="default"
         {...register(FIELD_NAMES.SECTOR, {
           required: true,
           validate: (value) => (value === 'default' ? MESSAGES.IS_REQUIRED : undefined),
         })}
       >
-        <option value="default" disabled selected>
+        <option value="default" disabled>
           Select sector from list
         </option>
         {SECTORS.map((sector) => (
