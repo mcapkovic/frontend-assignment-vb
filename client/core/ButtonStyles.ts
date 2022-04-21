@@ -5,18 +5,23 @@ interface IButton {
   primary?: boolean;
 }
 
-export const Button = styled.button<IButton>`
-  padding: 12px 42px;
-  background-color: ${(props) => props.primary? theme.colors.primary: theme.colors.grayBlue};
+export const ButtonBase = styled.button<IButton>`
+  background-color: ${(props) =>
+    props.primary ? theme.colors.primary : "transparent"};
   font-weight: ${theme.weight.bold};
-  color: ${theme.colors.white};
+  color: ${(props) =>
+    props.primary ? theme.colors.white : theme.colors.textGray};
   border: none;
-  border-radius:  ${theme.borderRadiusButton};
+  border-radius: ${theme.borderRadiusButton};
   cursor: pointer;
   transition: background-color 200ms;
 
-  &:hover{
-    background-color: ${(props) => props.primary? theme.colors.primaryHover: theme.colors.grayBlue};
+  &:hover {
+    background-color: ${(props) =>
+      props.primary ? theme.colors.primaryHover : theme.colors.black5};
   }
 `;
 
+export const Button = styled(ButtonBase)`
+  padding: 12px 42px;
+`;

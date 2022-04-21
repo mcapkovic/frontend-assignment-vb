@@ -4,17 +4,20 @@ import theme from "@client/theme";
 import { useMutation } from "@apollo/client";
 import { ADD_COMPANY, GET_COMPANIES, NewCompany } from "@client/graphql";
 
+// icons
+import { ReactComponent as CloseIcon } from "@assets/icons/close.svg";
+
 // styles
 import { Row } from "./AddCompanyStyles";
+import { Header, Title, Description, Close, Content } from "@client/core/DialogStyles";
+import { Button } from "@client/core/ButtonStyles";
 
 // components
 import AddCompanyForm from "./AddCompanyForm";
 
-// core
-import { Button } from "@client/core/ButtonStyles";
-
 const customStyles = {
   content: {
+    width: "640px",
     top: "50%",
     left: "50%",
     padding: "0",
@@ -25,6 +28,7 @@ const customStyles = {
     border: "none",
     borderRadius: theme.borderRadius,
     backgroundColor: theme.colors.bg,
+    height: 'fit-content',
   },
   overlay: {
     backgroundColor: "rgba(14, 15, 17, 0.9)",
@@ -36,6 +40,10 @@ function AddCompany() {
   const [addCompany] = useMutation(ADD_COMPANY, {
     refetchQueries: [GET_COMPANIES],
   });
+
+  const closeDialog = () => {
+    setIsModalOpen(false);
+  };
 
   const onSubmit = async (data: NewCompany) => {
     try {
@@ -62,13 +70,24 @@ function AddCompany() {
         isOpen={isModalOpen}
         style={customStyles}
         contentLabel="Example Modal"
-        onRequestClose={() => setIsModalOpen(false)}
+        onRequestClose={closeDialog}
         shouldCloseOnOverlayClick
         appElement={document.getElementById("root") as HTMLElement}
       >
-        {/* <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Hello</h2> */}
-        <button onClick={() => setIsModalOpen(false)}>close</button>
-        <AddCompanyForm onSubmit={onSubmit} />
+        <Header>
+          <Title>Add new company</Title>
+          <Description>
+            Add new company by filling all the required fields, select from
+            lists and be carefull, because integer is limited and not everyone
+            can handle that
+          </Description>
+          <Close onClick={closeDialog}>
+            <CloseIcon width={"20px"} />
+          </Close>
+        </Header>
+        <Content>
+          <AddCompanyForm onSubmit={onSubmit} onClose={closeDialog} />
+        </Content>
       </Modal>
     </Row>
   );

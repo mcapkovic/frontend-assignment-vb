@@ -10,10 +10,11 @@ const theme = {
     black2:'rgba(255, 255, 255, 0.03)',
     black3:'rgba(255, 255, 255, 0.03)',
     black5:'rgba(255, 255, 255, 0.05)',
-    black6:'rgba(255, 255, 255, 0.06)'
-
+    black6:'rgba(255, 255, 255, 0.06)',
+    red: '#ed2020'
   },
   weight: {
+    extraBold: 800,
     bold: 700,
     semiBold: 600,
     medium: 500,
