@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import theme from "@client/theme";
+import styled from 'styled-components'
+import theme from '@client/theme'
 
 export const SectionRow = styled.div`
   display: flex;
@@ -9,12 +9,12 @@ export const SectionRow = styled.div`
   justify-content: space-around;
   background-color: ${theme.colors.black3};
   border-radius: ${theme.borderRadius};
-`;
+`
 
 export const ChartWrapper = styled.div`
   height: 286px;
   flex-basis: 286px;
-`;
+`
 
 export const Legends = styled.ul`
   flex-basis: 340px;
@@ -27,13 +27,13 @@ export const Legends = styled.ul`
   max-height: 140px;
   line-height: 2;
   list-style-type: none;
-`;
+`
 
 export const Item = styled.li`
   display: flex;
   align-items: center;
   margin-right: 40px;
-`;
+`
 
 export const Dot = styled.div`
   height: 15px;
@@ -41,4 +41,4 @@ export const Dot = styled.div`
   background-color: ${(props) => props.color};
   border-radius: 50%;
   margin-right: 8px;
-`;
+`

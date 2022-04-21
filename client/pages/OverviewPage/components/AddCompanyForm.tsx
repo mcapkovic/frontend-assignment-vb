@@ -1,34 +1,37 @@
-import { useForm } from "react-hook-form";
-import { GRAPHQL_MAX_INT } from "graphql";
+import {useForm} from 'react-hook-form'
+import {GRAPHQL_MAX_INT} from 'graphql'
 
 // styles
-import { Button } from "@client/core/ButtonStyles";
-import { Footer, Form } from "./AddCompanyFormStyles";
-import { Label, Error, Field, FieldWrapper } from "@client/core/FieldStyles";
+import {Button} from '@client/core/ButtonStyles'
+import {
+  Label, Error, Field, FieldWrapper,
+} from '@client/core/FieldStyles'
+import {Footer, Form} from './AddCompanyFormStyles'
 
-const SECTORS = ["Fintech", "IOT", "Roboadvisory", "Insuretech"];
+const SECTORS = ['Fintech', 'IOT', 'Roboadvisory', 'Insuretech']
 const STAGES = [
-  "Idea",
-  "Prototype",
-  "Seed",
-  "Series A",
-  "Series B",
-  "Series C",
-];
+  'Idea',
+  'Prototype',
+  'Seed',
+  'Series A',
+  'Series B',
+  'Series C',
+]
 
 interface Props {
+  // eslint-disable-next-line no-unused-vars
   onSubmit: (data: any) => void;
   onClose: () => void;
 }
 
 function AddCompanyForm(props: Props) {
-  const { onSubmit, onClose } = props;
+  const {onSubmit, onClose} = props
 
   const {
     register,
     handleSubmit,
-    formState: { errors },
-  } = useForm();
+    formState: {errors},
+  } = useForm()
 
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
@@ -37,10 +40,10 @@ function AddCompanyForm(props: Props) {
         id="name"
         type="text"
         placeholder="Company name"
-        {...register("name", {
-          required: { value: true, message: "Field is required" },
-          minLength: { value: 3, message: "Min length is 3" },
-          maxLength: { value: 80, message: "Max length is 80" },
+        {...register('name', {
+          required: {value: true, message: 'Field is required'},
+          minLength: {value: 3, message: 'Min length is 3'},
+          maxLength: {value: 80, message: 'Max length is 80'},
         })}
       />
       {errors.name ? <Error>{errors.name.message}</Error> : null}
@@ -51,10 +54,9 @@ function AddCompanyForm(props: Props) {
       <Field
         as="select"
         id="stage"
-        {...register("stage", {
+        {...register('stage', {
           required: true,
-          validate: (value) =>
-            value === "default" ? "Field is required" : undefined,
+          validate: (value) => (value === 'default' ? 'Field is required' : undefined),
         })}
       >
         <option value="default" disabled selected>
@@ -75,10 +77,9 @@ function AddCompanyForm(props: Props) {
         as="select"
         id="sector"
         placeholder="sfadfafasfas"
-        {...register("sector", {
+        {...register('sector', {
           required: true,
-          validate: (value) =>
-            value === "default" ? "Field is required" : undefined,
+          validate: (value) => (value === 'default' ? 'Field is required' : undefined),
         })}
       >
         <option value="default" disabled selected>
@@ -95,13 +96,13 @@ function AddCompanyForm(props: Props) {
       <Label htmlFor="investmentSize" gap>
         Sector
       </Label>
-      <FieldWrapper data-suffix='EUR'>
+      <FieldWrapper data-suffix="EUR">
         <Field
           id="investmentSize"
           type="number"
           placeholder="Enter amount"
-          {...register("investmentSize", {
-            required: { value: true, message: "Field is required" },
+          {...register('investmentSize', {
+            required: {value: true, message: 'Field is required'},
             max: {
               value: GRAPHQL_MAX_INT,
               message: `Max amount is ${GRAPHQL_MAX_INT}`,
@@ -122,7 +123,7 @@ function AddCompanyForm(props: Props) {
         </Button>
       </Footer>
     </Form>
-  );
+  )
 }
 
-export default AddCompanyForm;
+export default AddCompanyForm

@@ -45,6 +45,5 @@ module.exports = {
     'no-shadow': 'warn',
     'consistent-return': 'off',
     'react/require-default-props': 'off',
-    z,
   },
 }

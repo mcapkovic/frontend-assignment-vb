@@ -1,19 +1,19 @@
-import PieChart from "./PieChart";
-import { ChartDataItem } from "../OverviewPage";
+import PieChart from './PieChart'
+import {ChartDataItem} from '../OverviewPage'
 import {
   ChartWrapper,
   SectionRow,
   Legends,
   Dot,
   Item,
-} from "./ChartSectionStyles";
+} from './ChartSectionStyles'
 
 interface Props {
   data: ChartDataItem[];
 }
 
 function ChartSection(props: Props) {
-  const { data } = props;
+  const {data} = props
   return (
     <div>
       <h1>Companies by investment size</h1>
@@ -32,7 +32,7 @@ function ChartSection(props: Props) {
         </Legends>
       </SectionRow>
     </div>
-  );
+  )
 }
 
-export default ChartSection;
+export default ChartSection

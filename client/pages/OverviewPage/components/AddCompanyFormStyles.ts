@@ -1,13 +1,13 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const Form = styled.form`
   display: flex;
   flex-direction: column;
-`;
+`
 
 export const Footer = styled.div`
   display: flex;
   justify-content: flex-end;
   gap: 10px;
   margin-top: 73px;
-`;
+`

@@ -1,15 +1,17 @@
 // styles
-import { StyledTable, Cell, HeaderCell, HeaderRow, TableRow } from "./TableStyles";
+import {
+  StyledTable, Cell, HeaderCell, HeaderRow, TableRow,
+} from './TableStyles'
 
 // types
-import { ChartTableItem } from "../OverviewPage";
+import {ChartTableItem} from '../OverviewPage'
 
 interface Props {
   data: ChartTableItem[];
 }
 
 function Table(props: Props) {
-  const { data } = props;
+  const {data} = props
   return (
     <StyledTable>
       <thead>
@@ -33,7 +35,7 @@ function Table(props: Props) {
         )) ?? null}
       </tbody>
     </StyledTable>
-  );
+  )
 }
 
-export default Table;
+export default Table

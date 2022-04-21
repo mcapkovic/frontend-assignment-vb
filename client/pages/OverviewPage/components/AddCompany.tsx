@@ -1,49 +1,51 @@
-import { useState } from "react";
-import Modal from "react-modal";
-import theme from "@client/theme";
-import { useMutation } from "@apollo/client";
-import { ADD_COMPANY, GET_COMPANIES, NewCompany } from "@client/graphql";
+import {useState} from 'react'
+import Modal from 'react-modal'
+import theme from '@client/theme'
+import {useMutation} from '@apollo/client'
+import {ADD_COMPANY, GET_COMPANIES, NewCompany} from '@client/graphql'
 
 // icons
-import { ReactComponent as CloseIcon } from "@assets/icons/close.svg";
+import {ReactComponent as CloseIcon} from '@assets/icons/close.svg'
 
 // styles
-import { Row } from "./AddCompanyStyles";
-import { Header, Title, Description, Close, Content } from "@client/core/DialogStyles";
-import { Button } from "@client/core/ButtonStyles";
+import {
+  Header, Title, Description, Close, Content,
+} from '@client/core/DialogStyles'
+import {Button} from '@client/core/ButtonStyles'
+import {Row} from './AddCompanyStyles'
 
 // components
-import AddCompanyForm from "./AddCompanyForm";
+import AddCompanyForm from './AddCompanyForm'
 
 const customStyles = {
   content: {
-    width: "640px",
-    top: "50%",
-    left: "50%",
-    padding: "0",
+    width: '640px',
+    top: '50%',
+    left: '50%',
+    padding: '0',
     // right: 'auto',
     // bottom: 'auto',
     // marginRight: '-50%',
-    transform: "translate(-50%, -50%)",
-    border: "none",
+    transform: 'translate(-50%, -50%)',
+    border: 'none',
     borderRadius: theme.borderRadius,
     backgroundColor: theme.colors.bg,
     height: 'fit-content',
   },
   overlay: {
-    backgroundColor: "rgba(14, 15, 17, 0.9)",
+    backgroundColor: 'rgba(14, 15, 17, 0.9)',
   },
-};
+}
 
 function AddCompany() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false)
   const [addCompany] = useMutation(ADD_COMPANY, {
     refetchQueries: [GET_COMPANIES],
-  });
+  })
 
   const closeDialog = () => {
-    setIsModalOpen(false);
-  };
+    setIsModalOpen(false)
+  }
 
   const onSubmit = async (data: NewCompany) => {
     try {
@@ -54,12 +56,13 @@ function AddCompany() {
           sector: data.sector,
           investmentSize: Number(data.investmentSize),
         },
-      });
-      setIsModalOpen(false);
+      })
+      setIsModalOpen(false)
     } catch (e) {
-      console.log(e);
+      // eslint-disable-next-line no-console
+      console.log(e)
     }
-  };
+  }
 
   return (
     <Row>
@@ -72,7 +75,7 @@ function AddCompany() {
         contentLabel="Example Modal"
         onRequestClose={closeDialog}
         shouldCloseOnOverlayClick
-        appElement={document.getElementById("root") as HTMLElement}
+        appElement={document.getElementById('root') as HTMLElement}
       >
         <Header>
           <Title>Add new company</Title>
@@ -82,7 +85,7 @@ function AddCompany() {
             can handle that
           </Description>
           <Close onClick={closeDialog}>
-            <CloseIcon width={"20px"} />
+            <CloseIcon width="20px" />
           </Close>
         </Header>
         <Content>
@@ -90,7 +93,7 @@ function AddCompany() {
         </Content>
       </Modal>
     </Row>
-  );
+  )
 }
 
-export default AddCompany;
+export default AddCompany

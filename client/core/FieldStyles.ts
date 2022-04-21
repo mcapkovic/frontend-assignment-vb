@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import theme from "@client/theme";
+import styled from 'styled-components'
+import theme from '@client/theme'
 
 interface ILabel {
   gap?: boolean;
@@ -8,15 +8,15 @@ interface ILabel {
 export const Label = styled.label<ILabel>`
   font-size: 13px;
   font-weight: ${theme.weight.semiBold};
-  margin-top: ${(props) => (props.gap ? "20px" : 0)};
+  margin-top: ${(props) => (props.gap ? '20px' : 0)};
   margin-bottom: 5px;
-`;
+`
 
 export const Error = styled.div`
   font-size: 13px;
   color: ${theme.colors.red};
   margin-top: 5px;
-`;
+`
 
 export const Field = styled.input`
   padding: 11.5px 15px;
@@ -42,7 +42,7 @@ export const Field = styled.input`
   &[type="number"] {
     -moz-appearance: textfield;
   }
-`;
+`
 
 export const FieldWrapper = styled.div`
   display: flex;
@@ -56,4 +56,4 @@ export const FieldWrapper = styled.div`
     transform: translateY(-50%);
     font-size: 15px;
   }
-`;
+`
