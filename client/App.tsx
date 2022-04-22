@@ -4,7 +4,7 @@ import theme from '@client/theme'
 import {ReactComponent as LogoSvg} from '@assets/vestberry-logo.svg'
 
 import client from '@client/apollo'
-import Page from '@client/Page'
+import OverviewPage from '@client/pages/OverviewPage/OverviewPage'
 
 const GlobalStyles = createGlobalStyle`
   body {
@@ -36,7 +36,7 @@ function App() {
           <Header>
             <Logo />
           </Header>
-          <Page />
+          <OverviewPage />
         </ThemeProvider>
       </ApolloProvider>
     </div>

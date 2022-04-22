@@ -8,6 +8,13 @@ export interface CompanyType {
   investmentSize: number
 }
 
+export interface NewCompany {
+  name: string
+  stage: string
+  sector: string
+  investmentSize: number
+}
+
 export const GET_COMPANIES = gql`
   query getCompanies {
     companies {
