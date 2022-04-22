@@ -8,13 +8,13 @@ export interface ChartDataItem {
   color: string;
 }
 
-export interface ChartTableItem extends CompanyType {
+export interface TableItem extends CompanyType {
   investmentSizeFormatted: string;
 }
 
 interface CompaniesData {
   sectorsCount: { [key: string]: number };
-  tableData: ChartTableItem[];
+  tableData: TableItem[];
   originalData: CompanyType[] | null;
   chartData: ChartDataItem[];
 }

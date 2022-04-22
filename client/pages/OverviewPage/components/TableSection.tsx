@@ -1,11 +1,11 @@
 // types
-import {ChartTableItem} from '@client/utils/helpers'
+import {TableItem} from '@client/utils/helpers'
 
 // components
 import Table from './Table'
 
 interface Props {
-  data: ChartTableItem[];
+  data: TableItem[];
 }
 
 function TableSection(props: Props) {

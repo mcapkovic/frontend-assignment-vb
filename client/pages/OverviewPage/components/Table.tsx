@@ -1,5 +1,5 @@
 // types
-import {ChartTableItem} from '@client/utils/helpers'
+import {TableItem} from '@client/utils/helpers'
 
 // styles
 import {
@@ -12,7 +12,7 @@ import {
 } from './TableStyles'
 
 interface Props {
-  data: ChartTableItem[];
+  data: TableItem[];
 }
 
 function Table(props: Props) {
