@@ -6,6 +6,7 @@ interface IButton {
 }
 
 export const ButtonBase = styled.button<IButton>`
+  font-size: 14px;
   background-color: ${(props) => (props.primary ? theme.colors.primary : 'transparent')};
   font-weight: ${theme.weight.bold};
   color: ${(props) => (props.primary ? theme.colors.white : theme.colors.textGray)};
